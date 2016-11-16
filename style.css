@@ -1,0 +1,13 @@
+body {
+  /*height: 100%;*/
+  width: 100%;
+  background: ghostwhite;
+  /*display: inline-block;*/
+}
+
+.searchForm {
+  /*display: inline;*/
+  margin: 25% 25%;
+  text-align: center;
+  /*margin: auto;*/
+}
