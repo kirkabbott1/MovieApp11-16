@@ -1,5 +1,16 @@
-  <div class="">
+
+
+  <div class="formContainer">
     <form ng-submit="submit()" class="searchForm"  method="post">
-      <input ng-model='movieName' type="search" placeholder="Search movies">
+      <input ng-model='movieName' type="search" placeholder="  Search all movies" size="40">
     </form>
+  </div>
+  <div class="nowPlaying">
+    <h2>Now Playing</h2>
+  </div>
+  <div class="repeatIMG">
+      <div  ng-repeat="result in results">
+        <div  > <a ui-sref="details({movieId: result.id})"><img height='300px' width='200px' ng-if="result.poster_path" ng-src="https://image.tmdb.org/t/p/w185{{result.poster_path}}" /> </a> </div>
+
+      </div>
   </div>
