@@ -21,8 +21,8 @@ app.factory('Movie', function factoryFunction($http) {
     });
   };
   service.search = function(queryparam, pageNumber) {
-    console.log("Query Param: " + queryparam)
-    console.log(pageNumber)
+    console.log("Query Param: " + queryparam);
+    console.log(pageNumber);
     return $http({
       url: 'http://api.themoviedb.org/3/search/movie',
       params: {
@@ -31,14 +31,14 @@ app.factory('Movie', function factoryFunction($http) {
         page: pageNumber
       }
     });
-  }
+  };
   return service;
-})
+});
 
   app.controller('SearchController', function($scope, $stateParams, $state, Movie) {
-    console.log($stateParams['pageNumber'])
+    console.log($stateParams.pageNumber);
     // ternary operator
-    $scope.pageNumber = (($stateParams['pageNumber']) === undefined) ? 1 : Number($stateParams['pageNumber']);
+    $scope.pageNumber = (($stateParams.pageNumber) === undefined) ? 1 : Number($stateParams.pageNumber);
     // $scope.pageNumber = Number($stateParams['pageNumber']);
 
     // $scope.submit = function() {
@@ -46,11 +46,11 @@ app.factory('Movie', function factoryFunction($http) {
     // }
     Movie.nowPlaying($scope.pageNumber).success(function(data) {
       $scope.results = data.results;
-    })
+    });
     $scope.next = function() {
       // $scope.pageNumber = Number($stateParams['pageNumber']);
       $scope.pageNumber += 1;
-      console.log($scope.pageNumber)
+      console.log($scope.pageNumber);
 
       $state.go('search', {pageNumber: $scope.pageNumber});
     };
@@ -64,9 +64,9 @@ app.factory('Movie', function factoryFunction($http) {
     // $scope.pageNumber = Number($stateParams['pageNumber']);
 
     $scope.submit = function() {
-      console.log($scope.pageNumber)
+      console.log($scope.pageNumber);
       $state.go('search_result', {movieName: $scope.movieName, pageNumber: 1});
-    }
+    };
 
     Movie.search($scope.movieName, $scope.pageNumber).success(function(searchData) {
       $scope.searchResults = searchData;
@@ -87,12 +87,12 @@ app.factory('Movie', function factoryFunction($http) {
   app.controller('DetailsController', function($scope, $stateParams, $state, Movie) {
     $scope.submit = function() {
       $state.go('search_result', {movieName: $scope.movieName});
-    }
+    };
     Movie.details($stateParams.movieId).success(function(detailData) {
       $scope.detailData = detailData;
       console.log(detailData);
     });
-  })
+  });
 
   app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -119,7 +119,7 @@ app.factory('Movie', function factoryFunction($http) {
       url: '/details/{movieId}',
       templateUrl: 'details.html',
       controller: 'DetailsController'
-    })
+    });
 
     $urlRouterProvider.otherwise('/search');
   });
