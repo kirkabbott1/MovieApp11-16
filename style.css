@@ -1,22 +1,45 @@
-body {
-  z-index: -1
-  /*height: 100%;*/
+
+html {
+  position: relative;
   width: 100%;
-  background: ghostwhite;
-  /*display: inline-block;*/
-  
+  height: 100%;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url('assets/theater2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 img {
-  margin: 5px;
+  margin: 3px;
+}
+.mainTitle {
+  color: white;
+  font-family: 'Bungee Inline', cursive;
+
 }
 .noFlex {
   display: inline-block;
 }
+img.noFlex {
+  width: 90%;
+}
+.block {
+  display: block;
+  max-width: 80%;
+  margin: auto;
+}
 
 .myButton {
--moz-box-shadow: -3px 3px 0px 0px #9fb4f2;
--webkit-box-shadow: -3px 3px 0px 0px #9fb4f2;
-box-shadow: -3px 3px 0px 0px #9fb4f2;
+position: absolute;
+top: 20px;
+left: 20px;
 background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #273a5c), color-stop(1, #476e9e));
 background:-moz-linear-gradient(top, #273a5c 5%, #476e9e 100%);
 background:-webkit-linear-gradient(top, #273a5c 5%, #476e9e 100%);
@@ -27,16 +50,15 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#273a5c', endCo
 background-color:#273a5c;
 -moz-border-radius:16px;
 -webkit-border-radius:16px;
-border-radius:16px;
-border:1px solid #4e6096;
+border-radius:12px;
+border:3px solid #4e6096;
 display:inline-block;
 cursor:pointer;
 color:#ffffff;
 font-family:Arial;
 font-size:18px;
-padding:10px 48px;
+padding:5px 24px;
 text-decoration:none;
-text-shadow:0px 0px 0px #283966;
 margin-bottom: 2%;
 
 }
@@ -59,9 +81,19 @@ div {
 .formContainer {
   align-items: center;
 }
+.fa-search {
+  position: absolute;
+  /* color: green; */
+  top: 11px;
+  left: 316px;
+  position: absolute;
 
+}
 .repeatIMG {
-  margin: 2%;
+  margin: 3%;
+}
+.searchForm {
+  position: relative;
 }
 .searchForm input{
   background-color:#fff;
@@ -81,4 +113,16 @@ div {
 }
 .details {
     width: 66%;
+    border-radius: 80px;
+    background: ghostwhite;
+    margin: 3% 0 2% 0;
+}
+@media screen and (max-width: 893px) {
+  .nowplay {
+    width: 100%;
+    text-align: center;
+  }
+  .myButton {
+    position: static;
+  }
 }

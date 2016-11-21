@@ -1,36 +1,37 @@
 
-  <div class="">
+  <div class="noFlex nowplay">
     <button ui-sref="search()" class="myButton" type="button" name="button">Now playing</button>
   </div>
 
   <div class="formContainer">
     <form ng-submit="submit()" class="searchForm"  method="post">
       <input ng-model='movieName' type="search" placeholder=" Search more movies" size="32">
+      <i class="fa fa-search" aria-hidden="true"></i>
     </form>
   </div>
-<div class="detailContainer">
-  <div class="details">
-      <div class="noFlex">
-        <h1 class="">{{detailData.title}}</h1>
+<div class="detailContainer noFlex">
+  <div class="details noFlex">
+      <div class="block">
+        <h1>{{detailData.title}}</h1>
         <h3 ng-if="detailData.tagline">{{detailData.tagline}}</h3>
-      </div>
-      <div class="repeatIMG">
-        <img ng-if="detailData.backdrop_path" ng-src="https://image.tmdb.org/t/p/w300{{detailData.backdrop_path}}" alt="" />
+      </div class="noFlex">
+      <div class= "noFlex">
+        <img class="noFlex" ng-if="detailData.backdrop_path" ng-src="https://image.tmdb.org/t/p/w300{{detailData.backdrop_path}}" alt="" />
 
       </div>
-      <div class="repeatImgContainer">
-        <div class="repeatIMG">
+      <div class="repeatImgContainer noflex">
+        <div class="repeatIMG noFlex">
           {{detailData.overview}}
         </div>
-        <div class="repeatIMG">
+        <div class="repeatIMG noFlex">
           Released: {{ detailData.release_date | date: 'MM-dd-yyyy' }}
         </div>
-        <div class="repeatIMG">
+        <div class="repeatIMG noFlex">
           Popularity: {{detailData.popularity | number: 2}}</a>
         </div>
-        <div class="repeatIMG">
+        <div class="repeatIMG noFlex">
           Box-Office Revenue: {{detailData.revenue | currency}}</a>
         </div>
       </div>
-  </div>
+    </div>
 </div>
